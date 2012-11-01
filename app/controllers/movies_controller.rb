@@ -50,6 +50,15 @@ class MoviesController < ApplicationController
     @movie = Movie.find params[:id]
   end
 
+  def find_movies_with_same_director
+     if params[:director] then
+     director = params[:director]
+     @movies = Movie.find_all_by_director(director)
+     else
+      @movies = []
+     end
+  end
+
   def update
     @movie = Movie.find params[:id]
     @movie.update_attributes!(params[:movie])

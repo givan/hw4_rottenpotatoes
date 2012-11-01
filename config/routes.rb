@@ -3,7 +3,8 @@ Rottenpotatoes::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  #   match 'products/:id' => 'movie#find_'
+  match '/movies/find_movies_with_same_director/:director' => 'movies#find_movies_with_same_director'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
