@@ -4,7 +4,7 @@ Rottenpotatoes::Application.routes.draw do
 
   # Sample of regular route:
   #   match 'products/:id' => 'movie#find_'
-  match '/movies/find_movies_with_same_director/:director' => 'movies#find_movies_with_same_director'
+  match '/movies/find_movies_with_same_director/:id' => 'movies#find_movies_with_same_director'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

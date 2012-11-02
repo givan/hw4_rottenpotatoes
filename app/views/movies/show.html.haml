@@ -19,5 +19,9 @@
 
 = link_to 'Edit', edit_movie_path(@movie)
 = button_to 'Delete', movie_path(@movie), :method => :delete, :confirm => 'Are you sure?'
-= link_to_if(!@movie.director.nil?, 'Find Movies With Same Director', { :controller => 'movies', :action => "find_movies_with_same_director", :director => @movie.director })
+- if @movie.director && @movie.director.length > 0
+  = link_to 'Find Movies With Same Director', { :controller => 'movies', :action => "find_movies_with_same_director", :id => @movie.id }
+- else
+  - flash[:warning] = "\'#{@movie.title}\' has no director info"
+  = link_to 'Find Movies With Same Director', movies_path
 = link_to 'Back to movie list', movies_path
