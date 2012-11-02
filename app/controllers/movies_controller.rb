@@ -51,11 +51,11 @@ class MoviesController < ApplicationController
   end
 
   def find_movies_with_same_director
-     if params[:director] then
-     director = params[:director]
-     @movies = Movie.find_all_by_director(director)
+     movie = Movie.find params[:id]
+     if movie && movie.director then
+	@movies = Movie.find_all_by_director(movie.director)
      else
-      @movies = []
+        render :action => 'index'
      end
   end
 
