@@ -15,6 +15,16 @@ describe MoviesController do
 
       post :create, {:movie => @fake_movie }
     end
+
+    it 'should forward on the index page view' do
+       Movie.stub(:find).and_return(@fake_movie)
+       @fake_movie.stub(:title).and_return('my movie title')
+       @fake_movie.stub(:destroy)
+
+       post :destroy, {:id => @fake_movie }
+
+       response.should render_template(’index’)
+    end
   end
 
   describe 'destroying a movie' do
@@ -41,7 +51,13 @@ describe MoviesController do
     end   
 
     it 'should forward on the index page view' do
-     ;
+       Movie.stub(:find).and_return(@fake_movie)
+       @fake_movie.stub(:title).and_return('my movie title')
+       @fake_movie.stub(:destroy)
+
+       post :destroy, {:id => @fake_movie }
+
+       response.should render_template(’index’)
     end
   end
 
