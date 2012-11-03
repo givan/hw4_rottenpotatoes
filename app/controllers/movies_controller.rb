@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
+   # debugger
     sort = params[:sort] || session[:sort]
     case sort
     when 'title'
@@ -52,11 +53,7 @@ class MoviesController < ApplicationController
 
   def find_movies_with_same_director
      movie = Movie.find params[:id]
-     if movie && movie.director then
-	@movies = Movie.find_all_by_director(movie.director)
-     else
-        render :action => 'index'
-     end
+     @movies = Movie.find_all_by_director(movie.director)
   end
 
   def update

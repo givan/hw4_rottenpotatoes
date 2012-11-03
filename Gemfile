@@ -16,9 +16,11 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec-rails'
+  gem 'ZenTest'
+#  gem 'factory_girl_rails'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
-  gem 'rspec-rails'
 end
 
 group :production do
