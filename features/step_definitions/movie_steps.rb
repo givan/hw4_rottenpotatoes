@@ -5,7 +5,7 @@ Given /^the following movies exist:$/ do |movies_table|
     @all_movies << @new_movie
   end
 
-  @all_ratings = @all_movies.collect { |movie| movie.rating }.uniq
+  @all_ratings = Movie.all_ratings
 end
 
 Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |movie, director|
